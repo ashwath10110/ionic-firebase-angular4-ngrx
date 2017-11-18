@@ -21,6 +21,11 @@ import { ROOT_REDUCER } from './../reducers/reducers';
 import { ConnectivityServiceProvider } from '../providers/connectivity-service/connectivity-service';
 import { GoogleMapsProvider } from '../providers/google-maps/google-maps';
 
+
+import { LocationPage } from '../pages/location/location';
+import { Network } from '@ionic-native/network';
+import { Geolocation } from '@ionic-native/geolocation';
+
 export const config = {
   apiKey: "AIzaSyCfhMtKkY-H7DHKTCNiYs2AVNroXQz7M6A",
   authDomain: "mytown-7a1f4.firebaseapp.com",
@@ -34,7 +39,8 @@ export const config = {
   declarations: [
     MyApp,
     HomePage,
-    MenuPage
+    MenuPage,
+    LocationPage
   ],
   imports: [
     BrowserModule,
@@ -48,15 +54,18 @@ export const config = {
   entryComponents: [
     MyApp,
     HomePage,
-    MenuPage
+    MenuPage,
+    LocationPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: ErrorHandler, useClass: IonicErrorHandler },
     AuthProvider,
     ConnectivityServiceProvider,
-    GoogleMapsProvider
+    GoogleMapsProvider,
+    Network,
+    Geolocation,
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
 export class AppModule { }
