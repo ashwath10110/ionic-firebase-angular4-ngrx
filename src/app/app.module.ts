@@ -6,6 +6,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { MenuPage } from '../pages/menu/menu';
+// import { HomePage } from '../pages/home/home';
 import { AuthProvider } from '../providers/auth/auth';
 
 import { AngularFireModule } from 'angularfire2';
@@ -16,6 +18,8 @@ import { StoreModule } from "@ngrx/store";
 import { mealReducer } from '../reducers/testreducers';
 // import {  } from '../actions/testactions';
 import { ROOT_REDUCER } from './../reducers/reducers';
+import { ConnectivityServiceProvider } from '../providers/connectivity-service/connectivity-service';
+import { GoogleMapsProvider } from '../providers/google-maps/google-maps';
 
 export const config = {
   apiKey: "AIzaSyCfhMtKkY-H7DHKTCNiYs2AVNroXQz7M6A",
@@ -29,7 +33,8 @@ export const config = {
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    MenuPage
   ],
   imports: [
     BrowserModule,
@@ -42,13 +47,16 @@ export const config = {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    MenuPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    AuthProvider
+    AuthProvider,
+    ConnectivityServiceProvider,
+    GoogleMapsProvider
   ]
 })
 export class AppModule { }
