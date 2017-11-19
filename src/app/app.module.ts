@@ -6,25 +6,17 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { MenuPage } from '../pages/menu/menu';
-// import { HomePage } from '../pages/home/home';
-import { AuthProvider } from '../providers/auth/auth';
 
+import { AuthProvider } from '../providers/auth/auth';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { StoreModule } from "@ngrx/store";
 import { mealReducer } from '../reducers/testreducers';
-// import {  } from '../actions/testactions';
+import { } from '../actions/testactions';
 import { ROOT_REDUCER } from './../reducers/reducers';
 import { ConnectivityServiceProvider } from '../providers/connectivity-service/connectivity-service';
-import { GoogleMapsProvider } from '../providers/google-maps/google-maps';
-
-
-import { LocationPage } from '../pages/location/location';
-import { Network } from '@ionic-native/network';
-import { Geolocation } from '@ionic-native/geolocation';
 
 export const config = {
   apiKey: "AIzaSyCfhMtKkY-H7DHKTCNiYs2AVNroXQz7M6A",
@@ -38,9 +30,7 @@ export const config = {
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    MenuPage,
-    LocationPage
+    HomePage
   ],
   imports: [
     BrowserModule,
@@ -53,18 +43,12 @@ export const config = {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
-    MenuPage,
-    LocationPage
+    HomePage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     AuthProvider,
-    ConnectivityServiceProvider,
-    GoogleMapsProvider,
-    Network,
-    Geolocation,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
